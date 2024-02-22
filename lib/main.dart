@@ -1,4 +1,4 @@
-import 'package:dalel_app/core/utils/app_assets.dart';
+import 'package:dalel_app/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,12 +10,9 @@ class DalelApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          child: Image.asset(Assets.imagesOnBoarding1),
-        ),
-      ),
+    return MaterialApp.router(
+      routerConfig: router,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
