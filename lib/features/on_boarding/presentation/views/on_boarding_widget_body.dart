@@ -1,5 +1,6 @@
 import 'package:dalel_app/core/utils/app_assets.dart';
 import 'package:dalel_app/core/utils/app_textStyle.dart';
+import 'package:dalel_app/features/on_boarding/data/models/on_boarding_model.dart';
 import 'package:dalel_app/features/on_boarding/presentation/views/custom_smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
       child: PageView.builder(
         physics: BouncingScrollPhysics(),
         controller: _controller,
-        itemCount: 3,
+        itemCount: onBoardingData.length,
         itemBuilder: (context, index) {
           return Column(children: [
             Container(
@@ -22,7 +23,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: AssetImage(Assets.imagesOnBoarding1))),
+                      image: AssetImage(onBoardingData[index].image))),
             ),
             SizedBox(
               height: 24,
@@ -34,7 +35,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
               height: 32,
             ),
             Text(
-              'Explore The history with Dalel in a smart way',
+              onBoardingData[index].title,
               style: CustomTextStyle.Poppins500style24.copyWith(
                   fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
@@ -45,7 +46,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
               height: 16,
             ),
             Text(
-              'Using our app’s history libraries you can find many historical periods',
+              onBoardingData[index].subTitle,
               style: CustomTextStyle.Poppins300style16,
               textAlign: TextAlign.center,
               maxLines: 2,
