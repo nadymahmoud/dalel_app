@@ -1,15 +1,20 @@
-import 'package:dalel_app/core/utils/app_assets.dart';
-import 'package:dalel_app/core/utils/app_strings.dart';
-import 'package:dalel_app/core/utils/app_textStyle.dart';
-import 'package:dalel_app/core/widgets/custom_button.dart';
-import 'package:dalel_app/features/on_boarding/presentation/views/custom_nav_bar.dart';
-import 'package:dalel_app/features/on_boarding/presentation/views/on_boarding_widget_body.dart';
-import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:dalel_app/core/functions/navigation.dart';
 
-class OnBoardingView extends StatelessWidget {
+import 'package:dalel_app/features/on_boarding/presentation/views/widgets/custom_nav_bar.dart';
+import 'package:dalel_app/features/on_boarding/presentation/views/widgets/on_boarding_widget_body.dart';
+import 'package:dalel_app/features/on_boarding/presentation/views/widgets/get_buttons.dart';
+import 'package:flutter/material.dart';
+
+class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
 
+  @override
+  State<OnBoardingView> createState() => _OnBoardingViewState();
+}
+
+class _OnBoardingViewState extends State<OnBoardingView> {
+  final PageController _controller = PageController(initialPage: 0);
+  int currentindex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,14 +27,23 @@ class OnBoardingView extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-              customNauvBar(),
-              OnBoardingWidgetBody(),
+              customNauvBar(
+                onTap: () {
+                  customReplacementNavigate(context, '/signUp');
+                },
+              ),
+              OnBoardingWidgetBody(
+                onPageChanged: (index) {
+                  setState(() {
+                    currentindex = index;
+                  });
+                },
+                controller: _controller,
+              ),
               SizedBox(
                 height: 88,
               ),
-              CustomButton(
-                text: AppStrings.next,
-              ),
+              GetButtons(currentindex: currentindex, controller: _controller),
               SizedBox(
                 height: 17,
               )
