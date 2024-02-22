@@ -16,13 +16,17 @@ class OnBoardingView extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
+          child: ListView(
+            physics: BouncingScrollPhysics(),
             children: [
               SizedBox(
                 height: 40,
               ),
               customNauvBar(),
               OnBoardingWidgetBody(),
+              SizedBox(
+                height: 88,
+              ),
               CustomButton(
                 text: AppStrings.next,
               ),
