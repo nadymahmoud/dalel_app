@@ -1,4 +1,7 @@
+import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/functions/navigation.dart';
+import 'package:dalel_app/core/services/service_locator.dart';
+import 'package:dalel_app/features/on_boarding/presentation/views/functions/on_boarding.dart';
 
 import 'package:dalel_app/features/on_boarding/presentation/views/widgets/custom_nav_bar.dart';
 import 'package:dalel_app/features/on_boarding/presentation/views/widgets/on_boarding_widget_body.dart';
@@ -29,6 +32,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ),
               customNauvBar(
                 onTap: () {
+                  onboardingVisited();
                   customReplacementNavigate(context, '/signUp');
                 },
               ),
