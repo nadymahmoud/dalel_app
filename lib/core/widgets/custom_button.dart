@@ -3,8 +3,8 @@ import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_textStyle.dart';
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
-  const CustomButton(
+class CustomButtonWidget extends StatelessWidget {
+  const CustomButtonWidget(
       {super.key, this.color, required this.text, this.onPressed});
   final Color? color;
   final String text;

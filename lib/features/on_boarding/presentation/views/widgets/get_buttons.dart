@@ -16,7 +16,7 @@ class GetButtons extends StatelessWidget {
     if (currentindex == onBoardingData.length - 1) {
       return Column(
         children: [
-          CustomButton(
+          CustomButtonWidget(
             text: AppStrings.createAccount,
             onPressed: () {
               onboardingVisited();
@@ -40,7 +40,7 @@ class GetButtons extends StatelessWidget {
         ],
       );
     } else {
-      return CustomButton(
+      return CustomButtonWidget(
         onPressed: () {
           controller.nextPage(
               duration: Duration(milliseconds: 200), curve: Curves.bounceIn);
