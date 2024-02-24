@@ -1,3 +1,4 @@
+import 'package:dalel_app/core/functions/navigation.dart';
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_textStyle.dart';
@@ -8,6 +9,7 @@ import 'package:dalel_app/features/auth/presentation/widgets/custom_text_field.d
 import 'package:dalel_app/features/auth/presentation/widgets/have_an_account.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/terms_and_condition_widget.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/welcome_text_widget.dart';
+import 'package:dalel_app/features/on_boarding/presentation/views/widgets/custom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
 class SignUpView extends StatelessWidget {
@@ -45,9 +47,12 @@ class SignUpView extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: HaveAnAccountWidget(
+                  onTap: () {
+                    customReplacementNavigate(context, '/signIn');
+                  },
                   text1: AppStrings.alreadyHaveAnAccount,
                   text2: AppStrings.signIn),
-            )
+            ),
           ],
         ),
       ),
