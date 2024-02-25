@@ -18,6 +18,7 @@ abstract class AppStrings {
       signIn = "Sign In",
       alreadyHaveAnAccount = "Already have an account ? ",
       dontHaveAnAccount = "Don’t have an account ? ",
+      sendVerificationCode = 'Send Verification Code',
       forgotPassword = "Forgot Password ?",
       //!Home Strings
       recommendations = "Recommendations",
