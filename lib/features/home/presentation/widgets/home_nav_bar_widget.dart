@@ -49,7 +49,7 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
         inactiveIcon: SvgPicture.asset(Assets.imagesSearch),
         icon: SvgPicture.asset(Assets.imagesSearchIconActive)),
     PersistentBottomNavBarItem(
-        inactiveIcon: SvgPicture.asset(Assets.resourceImagesPerson),
-        icon: SvgPicture.asset(Assets.resourceImagesProfileIconActive)),
+        inactiveIcon: SvgPicture.asset(Assets.imagesPerson),
+        icon: SvgPicture.asset(Assets.imagesProfileIconActive)),
   ];
 }
