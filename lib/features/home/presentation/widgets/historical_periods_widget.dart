@@ -3,9 +3,11 @@ import 'package:dalel_app/core/utils/app_assets.dart';
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_textStyle.dart';
+import 'package:dalel_app/core/widgets/custom_shimmer_category.dart';
 import 'package:dalel_app/features/home/data/models/historical_periods_model.dart';
 import 'package:dalel_app/features/home/presentation/widgets/historical_period_item.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class HistoricalPeriods extends StatelessWidget {
   const HistoricalPeriods({super.key});
@@ -48,7 +50,7 @@ class HistoricalPeriods extends StatelessWidget {
                   itemCount: snapshot.data!.docs.length),
             );
           }
-          return Text("loading");
+          return CustomShimmerCategory();
         });
   }
 }
