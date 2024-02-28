@@ -1,21 +1,19 @@
-class HistericalPeriodsModel {
-  final String name;
-  final String image;
+import 'package:dalel_app/core/models/data_model.dart';
+import 'package:dalel_app/features/home/data/models/wars_model.dart';
 
-  final String discription;
-
-  final Map<String, dynamic> wars;
+class HistericalPeriodsModel extends DataModel {
+  final List<WarsModel> wars;
 
   HistericalPeriodsModel(
-      {required this.name,
-      required this.image,
-      required this.discription,
+      {required super.name,
+      required super.image,
+      required super.discription,
       required this.wars});
-  factory HistericalPeriodsModel.fromJson(jsonData) {
+  factory HistericalPeriodsModel.fromJson(jsonData, warsList) {
     return HistericalPeriodsModel(
         name: jsonData['name'],
         image: jsonData['image'],
         discription: jsonData['description'],
-        wars: jsonData['wars']);
+        wars: warsList);
   }
 }
