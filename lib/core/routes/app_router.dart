@@ -2,6 +2,8 @@ import 'package:dalel_app/features/auth/presentation/auth_cubit/cubit/auth_cubit
 import 'package:dalel_app/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/sign_in_view.dart';
 import 'package:dalel_app/features/auth/presentation/views/sign_up_view.dart';
+import 'package:dalel_app/features/home/data/models/historical_periods_model.dart';
+import 'package:dalel_app/features/home/presentation/views/historical_periods_details_view.dart';
 import 'package:dalel_app/features/home/presentation/widgets/home_nav_bar_widget.dart';
 import 'package:dalel_app/features/on_boarding/presentation/views/on_boardind_view.dart';
 import 'package:dalel_app/features/splash/presentation/views/splash_view.dart';
@@ -42,6 +44,12 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: "/homeNavbar",
       builder: (context, state) => HomeViewNavBarWidget(),
+    ),
+    GoRoute(
+      path: "/historicalPeriodsDetailsView",
+      builder: (context, state) => HistoricalPeriodsDetailsView(
+        model: state.extra as HistericalPeriodsModel,
+      ),
     ),
   ],
 );

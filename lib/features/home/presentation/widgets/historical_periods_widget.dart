@@ -1,14 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dalel_app/core/functions/custom_toast.dart';
+import 'package:dalel_app/core/models/data_model.dart';
 import 'package:dalel_app/core/utils/app_assets.dart';
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_textStyle.dart';
+import 'package:dalel_app/core/widgets/custom_data_list_view.dart';
 import 'package:dalel_app/core/widgets/custom_shimmer_category.dart';
 import 'package:dalel_app/features/home/data/models/historical_periods_model.dart';
 import 'package:dalel_app/features/home/presentation/cubit/home_cubit.dart';
 import 'package:dalel_app/features/home/presentation/cubit/home_state.dart';
-import 'package:dalel_app/features/home/presentation/widgets/historical_period_item.dart';
+import 'package:dalel_app/core/widgets/custom_data_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
@@ -27,25 +29,9 @@ class HistoricalPeriods extends StatelessWidget {
       builder: (context, state) {
         return state is GetHistoricalPeriodsLoading
             ? CustomShimmerCategory()
-            : SizedBox(
-                height: 96,
-                child: ListView.separated(
-                    clipBehavior: Clip.none,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return HistoricalPeriod(
-                        model:
-                            context.read<HomeCubit>().historicalPeriods[index],
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return SizedBox(
-                        width: 10,
-                      );
-                    },
-                    itemCount:
-                        context.read<HomeCubit>().historicalPeriods.length),
-              );
+            : CustomDataListView(
+                routePath: '/historicalPeriodsDetailsView',
+                dataList: context.read<HomeCubit>().historicalPeriods);
 
         // FutureBuilder<QuerySnapshot>(
         //     future: FirebaseFirestore.instance
